@@ -1,10 +1,10 @@
 [package]
 name = "XIVModTool"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [dependencies]
-physis = "0.2"
+physis = "0.3"
 clap = { version = "4.5", features = ["derive"] }
 markdown-table = "0.2"
-percent-encoding = "2.1"
+percent-encoding = "2.3"

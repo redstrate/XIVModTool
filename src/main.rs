@@ -1,7 +1,7 @@
 use clap::{Parser, Subcommand};
 use markdown_table::MarkdownTable;
 use percent_encoding::{utf8_percent_encode, AsciiSet, CONTROLS};
-use physis::common::Language;
+use physis::common::{Language, Platform};
 use physis::equipment::{deconstruct_equipment_path, get_slot_from_id};
 use physis::exd::ColumnData;
 use physis::gamedata::GameData;
@@ -37,9 +37,7 @@ fn main() {
                     .iter()
                     .collect();
 
-            let mut game_data = GameData::from_existing(&args.game_path).unwrap();
-
-            game_data.reload_repositories();
+            let mut game_data = GameData::from_existing(Platform::Win32, &args.game_path).unwrap();
 
             let items_exh = game_data.read_excel_sheet_header("Item").unwrap();
 
